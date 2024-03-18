@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechFest 2023</title>
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <h1>TechFest 2023</h1>
+  <h4>Explore o Futuro da Tecnologia</h4>
+  <p>12 de Agosto de 2023</p>
+</header>
+
+<section id="speakers">
+  <h2>Palestrantes</h2>
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="speaker1.jpg" alt="Palestrante 1">
+      <div class="caption">
+        <h3>John Doe</h3>
+        <p>John Doe é um especialista em inteligência artificial com mais de 10 anos de experiência. Ele é apaixonado por encontrar soluções inovadoras para problemas complexos.</p>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img src="speaker2.jpg" alt="Palestrante 2">
+      <div class="caption">
+        <h3>Jane Smith</h3>
+        <p>Jane Smith é uma desenvolvedora de software experiente e defensora da diversidade na tecnologia. Ela é conhecida por seu trabalho em comunidades de programação.</p>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img src="speaker3.jpg" alt="Palestrante 3">
+      <div class="caption">
+        <h3>Mark Johnson</h3>
+        <p>Mark Johnson é um engenheiro de software com vasta experiência em desenvolvimento de aplicativos móveis. Ele é um entusiasta da realidade virtual e aumentada.</p>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img src="speaker4.jpg" alt="Palestrante 4">
+      <div class="caption">
+        <h3>Sarah Brown</h3>
+        <p>Sarah Brown é uma cientista de dados renomada que trabalha na interseção de dados e saúde. Ela é uma palestrante frequente em conferências internacionais.</p>
+      </div>
+    </div>
+  </div>
+  <div class="gallery-navigation">
+    <button id="prevBtn" class="nav-btn">&lt;</button>
+    <button id="nextBtn" class="nav-btn">&gt;</button>
+  </div>
+  <ul class="gallery-indicators"></ul>
+</section>
+
+<script>
+  const gallery = document.querySelector('.gallery');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  const indicatorsContainer = document.querySelector('.gallery-indicators');
+
+  galleryItems.forEach((item, index) => {
+    const indicator = document.createElement('li');
+    indicator.classList.add('gallery-indicator');
+    if (index === 0) {
+      indicator.classList.add('active');
+    }
+    indicator.addEventListener('click', () => {
+      setActiveSlide(index);
+    });
+    indicatorsContainer.appendChild(indicator);
+  });
+
+  function setActiveSlide(index) {
+    const indicator = document.querySelectorAll('.gallery-indicator');
+    const offsetX = -index * galleryItems[0].offsetWidth;
+    gallery.style.transform = `translateX(${offsetX}px)`;
+    indicator.forEach((el, i) => {
+      el.classList.toggle('active', i === index);
+    });
+  }
+</script>
+
+<section id="schedule">
+  <h2>Programação</h2>
+  <div class="timeline">
+    <div class="event">
+      <h3>09:00</h3>
+      <p>Abertura</p>
+    </div>
+    <div class="event">
+      <h3>10:00</h3>
+      <p>John Doe</p>
+    </div>
+    <div class="event">
+      <h3>14:00</h3>
+      <p>Jane Smith</p>
+    </div>
+        </div>
+    <div class="event">
+      <h3>16:00</h3>
+      <p>Mark Johnson</p>
+    </div>
+    <div class="event">
+      <h3>18:00</h3>
+      <p>Sarah Brown</p>
+    </div>
+  </div>
+</section>
+
+<section id="localization">
+  <h2>Localização</h2>
+  <p>O TechFest 2023 acontecerá no Centro de Convenções da Cidade.</p>
+  <p>Para opções de hospedagem, consulte os hotéis parceiros nas proximidades.</p>
+</section>
+
+<section id="registration">
+  <h2>Inscrição</h2>
+  <p>Inscreva-se agora para garantir seu lugar na TechFest 2023!</p>
+  <a href="inscricao.html" class="btn">Inscreva-se Agora</a>
+</section>
+<footer>
+  <p>&copy; 2023 TechFest. Todos os direitos reservados.</p>
+</footer>
+</body>
+</html>
+<script src="script.js"></script>
